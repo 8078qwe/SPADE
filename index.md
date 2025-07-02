@@ -2,24 +2,21 @@
 layout: project_page
 permalink: /
 
-title: SPADE: Spatial-Aware Denoising Network for Open-vocabulary Panoptic Scene Graph Generation with Long- and Local-range Context Reasoning
+title: "SPADE: Spatial-Aware Denoising Network for Open-vocabulary Panoptic Scene Graph Generation with Long- and Local-range Context Reasoning"
 
 authors:
-  - name: Wen Yin
-    link: https://yinwen2019.github.io/
-    superscript: 1
-  - name: Yong Wang
-    link: https://www.en.scse.uestc.edu.cn/info/1085/1927.htm
-    superscript: 1
-  - name: Guiduo Duan
-    link: https://www.scse.uestc.edu.cn/info/1081/11210.htm
-    superscript: 1,2
-  - name: Dongyang Zhang
-    link: https://zhangdy827.github.io/dyzhang.github.io/
-    superscript: 1
   - name: Xin Hu
     link: https://openreview.net/profile?id=~XIN_Hu8
     superscript: 1
+  - name: Ke Qin
+    link: https://www.scse.uestc.edu.cn/info/1081/11199.htm
+    superscript: 1,2
+  - name: Guiduo Duan
+    link: https://www.scse.uestc.edu.cn/info/1081/11210.htm
+    superscript: 1,2
+  - name: Ming Li
+    link: https://ming1993li.github.io/
+    superscript: 4
   - name: Yuan-Fang Li
     link: https://liyuanfang.github.io/
     superscript: 3
@@ -27,11 +24,12 @@ authors:
     link: https://ht014.github.io/
     superscript: 1,2,*
 
-affiliations:
-    <sup>1</sup> The Laboratory of Intelligent Collaborative Computing of UESTC  <br>
-    <sup>2</sup> Ubiquitous Intelligence and Trusted Services Key Laboratory of Sichuan Province  <br>
-    <sup>3</sup> Faculty of Information Technology, Monash University  <br>
-    <sup>*</sup> Corresponding author
+affiliations: |
+  <sup>1</sup> The Laboratory of Intelligent Collaborative Computing of UESTC<br>
+  <sup>2</sup> Ubiquitous Intelligence and Trusted Services Key Laboratory of Sichuan Province<br>
+  <sup>3</sup> Faculty of Information Technology, Monash University<br>
+  <sup>4</sup> Guangdong Laboratory of Artificial Intelligence and Digital Economy (SZ)
+  <br><sup>*</sup> Corresponding author
 
 accepted:
     The IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) 2025
