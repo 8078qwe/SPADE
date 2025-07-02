@@ -1,7 +1,9 @@
 ---
 layout: project_page
 permalink: /
+
 title: "SPADE: Spatial-Aware Denoising Network for Open-vocabulary Panoptic Scene Graph Generation with Long- and Local-range Context Reasoning"
+
 authors:
   - name: Xin Hu
     link: https://openreview.net/profile?id=~XIN_Hu8
