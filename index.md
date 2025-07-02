@@ -1,9 +1,7 @@
 ---
 layout: project_page
 permalink: /
-
-title: SPADE: Spatial-Aware Denoising Network for Open-vocabulary Panoptic Scene Graph Generation with  Long- and Local-range  Context Reasoning
-
+title: "SPADE: Spatial-Aware Denoising Network for Open-vocabulary Panoptic Scene Graph Generation with Long- and Local-range Context Reasoning"
 authors:
   - name: Xin Hu
     link: https://openreview.net/profile?id=~XIN_Hu8
@@ -24,19 +22,16 @@ authors:
     link: https://ht014.github.io/
     superscript: 1,2,*
 
-affiliations:
-    <sup>1</sup> The Laboratory of Intelligent Collaborative Computing of UESTC  <br>
-    <sup>2</sup> Ubiquitous Intelligence and Trusted Services Key Laboratory of Sichuan Province  <br>
-    <sup>3</sup> Faculty of Information Technology, Monash University  <br>
-    <sup>4</sup> Guangdong Laboratory of Artificial Intelligence and Digital Economy (SZ)
-    <sup>*</sup> Corresponding author
+affiliations: |
+  <sup>1</sup> The Laboratory of Intelligent Collaborative Computing of UESTC<br>
+  <sup>2</sup> Ubiquitous Intelligence and Trusted Services Key Laboratory of Sichuan Province<br>
+  <sup>3</sup> Faculty of Information Technology, Monash University<br>
+  <sup>4</sup> Guangdong Laboratory of Artificial Intelligence and Digital Economy (SZ)
+  <br><sup>*</sup> Corresponding author
 
-accepted:
-    The IEEE/CVF International Conference on Computer Vision (ICCV) 2025
+accepted: The IEEE/CVF International Conference on Computer Vision (ICCV) 2025
 paper: https://openaccess.thecvf.com/content/CVPR2025/html/Yin_Knowledge-Aligned_Counterfactual-Enhancement_Diffusion_Perception_for_Unsupervised_Cross-Domain_Visual_Emotion_Recognition_CVPR_2025_paper.html
-# video: https://www.youtube.com/results?search_query=turing+machine
 code: https://github.com/yinwen2019/KCDP
-# data: https://huggingface.co/docs/datasets
 slide: https://yinwen2019.github.io/ucdver/assets/slide.pptx
 ---
 
