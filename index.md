@@ -52,7 +52,10 @@ slide: https://yinwen2019.github.io/ucdver/assets/slide.pptx
 
 
 # Background
-**Visual Emotion Recognition** (**VER**), a fundamental task in artificial intelligence and human-computer interaction, aims to identify human emotions through visual cues, such as facial expressions, body language  and contextual scene features. Existing VER methods typically focus on realistic images and have gained considerable advancements on a suite of datasets such as **EmoSet** and **Emotion6**. Unfortunately, current VER models cannot handle emotion recognition in these new domains due to the significant emotional expression variability between domains and an affective distribution shift. In this paper, we introduce a new challenging task **Unsupervised Cross-Domain Visual Emotion Recognition** (**UCDVER**), where a model is trained with labeled source-domain data (e.g., realistic images) and unlabeled target domain data (e.g., stickers), but is employed to recognize emotion in the target domain.
+**Panoptic Scene Graph Generation** (**PSG**) aims to unify ​​instance segmentation​​ and ​​visual relationship detection​​ into a holistic framework, capturing pixel-level structural relationships in complex scenes. While traditional methods operate in closed-set paradigms, recent advances leverage Vision-Language Models (VLMs) like CLIP and BLIP for open-vocabulary settings. These VLMs enable recognition of unseen objects/relations by transferring knowledge from large-scale image-text pretraining. However, existing VLM-based PSG approaches exhibit critical limitations:
+
+​​Spatial reasoning deficits​​: VLMs struggle to discern fine-grained spatial relationships (e.g., relative positions) due to training on caption datasets lacking detailed spatial annotations.
+​​Long-range context neglect​​: Models fail to effectively model interactions between distant objects, leading to suboptimal relation prediction.
 
 # Motivation
 Taking the stickers and realistic images as an example shown in Figure 1, two key challenges arise:
