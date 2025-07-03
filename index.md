@@ -52,42 +52,50 @@ slide: https://yinwen2019.github.io/ucdver/assets/slide.pptx
 
 
 # Background
-**Panoptic Scene Graph Generation** (**PSG**) aims to unify ​​instance segmentation​​ and ​​visual relationship detection​​ into a holistic framework, capturing pixel-level structural relationships in complex scenes. While traditional methods operate in closed-set paradigms, recent advances leverage Vision-Language Models (VLMs) like CLIP and BLIP for open-vocabulary settings. These VLMs enable recognition of unseen objects/relations by transferring knowledge from large-scale image-text pretraining. However, existing VLM-based PSG approaches exhibit critical limitations:
+**Panoptic Scene Graph Generation** (**PSG**) is a powerful paradigm that unifies instance segmentation and relationship prediction to enable pixel-level, structured scene understanding. Unlike traditional Scene Graph Generation (SGG), which typically operates on detected bounding boxes and a closed vocabulary, PSG requires simultaneously segmenting all entities and modeling their interactions as subject-predicate-object triples.
 
-​​Spatial reasoning deficits​​: VLMs struggle to discern fine-grained spatial relationships (e.g., relative positions) due to training on caption datasets lacking detailed spatial annotations.
-​​Long-range context neglect​​: Models fail to effectively model interactions between distant objects, leading to suboptimal relation prediction.
+In recent years, approaches based on Vision-Language Models (VLMs) have made significant progress in **Open-vocabulary** scenarios, and recent advances in Visual Language Models (VLMs) such as CLIP and BLIP have pushed the frontiers of Open-vocabulary comprehension, enabling models to recognize novel objects and relationships beyond fixed categories. . However, while these models perform well in semantic recognition, these approaches still have limitations in spatial relational reasoning, especially when it comes to accurately understanding relationships between distant objects pairs.
 
 # Motivation
-Taking the stickers and realistic images as an example shown in Figure 1, two key challenges arise:
-- **Emotional expression variability**: Emotional expressions vary greatly. Realistic images reflect emotions expressed by real humans, while stickers exaggerate or simplify emotions, often focusing on single or multiple virtual elements.
-- **Affective distribution shift**: According to the _Emotional Causality theory_, an emotion is embedded in a sequence involving (i) _external event_; (ii) _emotional state_; and (iii) _physiological response_. Stickers or emojis emphasize the last two, i.e. (ii) and (iii) , while the emotion in realistic images is often linked to the external context surrounding the subject(s).
+Despite their impressive performance on open-world classification tasks, VLMs inherently lack spatial reasoning abilities because they are typically trained on image-caption datasets with limited spatial annotations. This limitation significantly affects their performance in predicting spatial predicates, especially when objects are far apart or exhibit subtle geometric relations.
+
+Our investigation reveals a critical gap: ​​VLM-based PSG models underperform in spatial relation prediction​​, especially for distantly located objects (Fig. 1). Key observations include:
+
+- ​​​​Distance sensitivity​​: Recall@50 for spatial predicates drops by 6–10% when objects are >1/3 image width apart.
+
+Inspired by the inversion process in denoising diffusion models — known for preserving fine-grained spatial structures in images — we asked: Can we integrate spatial knowledge into VLM-based frameworks without sacrificing their strong open-vocabulary capabilities?
+
+Follow this insight, we adapt diffusion models to PSG via:
+- ​​Inversion-guided calibration​​ of cross-attention maps to inject spatial priors.
+- ​​Dual-context reasoning​​ combining long-range and local spatial cues.
+> *We hypothesize this synergy can overcome VLM limitations without sacrificing open-vocabulary generalization.*
 
 
 ![databias](/assets/databias.svg){: style="width: 500px; height: 300px; display: block; margin: 0 auto; margin-top: 50px; margin-bottom: 50px;"}
 
 
 # Methods
-We propose a **Knowledge-aligned Counterfactual-enhancement Diffusion Perception** (**KCDP**) framework, which projects affective cues into a domain-agnostic knowledge space and performs domain-adaptive visual affective perception by a diffusion model.  
+We propose **SPADE** (**SPatial-Aware Denoising-nEtwork**), a novel two-stage framework that explicitly enhances spatial reasoning while retaining open-vocabulary recognition capabilities.
 
-Briefly, KCDP is composed of two primary modules: **Knowledge-Alignment Diffusion
-Affective Perception** (**KADAP**) and **Counterfactual-Enhanced Language-Image Emotional Alignment** (**CLIEA**). The \textbf{KADAP} module focuses on learning domain-agnostic knowledge and making robust predictions based on an MoE predictor , while the **CLIEA** module generates high-quality pseudo-labels for effective training .
+**Inversion-Guided UNet Calibration**
+In the first stage, we leverage a pre-trained diffusion model as a spatially-aware teacher.  Using the inversion process, we extract cross-attention maps that serve as explicit spatial priors, guiding the adaptation of the UNet denoising backbone.  To maintain the open-vocabulary recognition power, we adopt a lightweight fine-tuning strategy called LoRA (Low-Rank Adaptation), updating only a small set of parameters in cross-attention layers.  This ensures that the pre-trained knowledge is preserved while injecting strong spatial cues.
+
+**Spatial-Aware Context Reasoning**
+In the second stage, we introduce a Spatial-Aware Relation Graph Transformer (RGT) to model both local and long-range context among segmented instances.  By constructing a spatial-semantic graph where nodes represent instance masks and edges encode spatial and semantic affinities, the RGT iteratively refines object features through a combination of graph convolutions and self-attention mechanisms.  This dual-context reasoning enables the model to capture subtle relationships that are crucial for accurate predicate prediction.
 
 
 ![framework](/assets/framework.svg){: style="width: 1000px; height: auto; display: block; margin: 0 auto; margin-top: 100px; margin-bottom: 100px;"}
 
 
-The CLIEA strategy is designed to generate high-quality emotional pseudo-labels for  the target domain. CLIEA is inspired by the causal relationships underlying language-image emotional alignment.
 
-
-![framework](/assets/casusalgraph.svg){: style="width: 500px; height: auto; display: block; margin: 0 auto; margin-top: 50px; margin-bottom: 50px;"}
 
 
 ## Citation
 ```
-@article{ucdver,
-  title={Knowledge-Aligned Counterfactual-Enhancement Diffusion Perception for Unsupervised Cross-Domain Visual Emotion Recognition},
-  author={Wen Yin, Yong Wang, Guiduo Duan, Dongyang Zhang, Xin Hu, Yuan-Fang Li, Tao He},
-  journal={CVPR},
+@article{SPADE,
+  title={SPADE: Spatial-Aware Denoising Network for Open-vocabulary Panoptic Scene Graph Generation with Long- and Local-range Context Reasoning},
+  author={Xin Hu, Ke Qin, Guiduo Duan, Ming Li, Yuanfang Li, Tao He},
+  journal={iccv},
   year={2025}
 }
 ```
