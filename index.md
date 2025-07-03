@@ -4,19 +4,19 @@ permalink: /
 title: "SPADE: Spatial-Aware Denoising Network for Open-vocabulary Panoptic Scene Graph Generation with Long- and Local-range Context Reasoning"
 authors:
   - name: Xin Hu
-    link: https://openreview.net/profile?id=~XIN_Hu8
+    link: "#"
     superscript: 1
   - name: Ke Qin
-    link: https://www.scse.uestc.edu.cn/info/1081/11199.htm
+    link: "#"
     superscript: 1,2
   - name: Guiduo Duan
-    link: https://www.scse.uestc.edu.cn/info/1081/11210.htm
+    link: "#"
     superscript: 1,2
   - name: Ming Li
-    link: https://ming1993li.github.io/
+    link: "#"
     superscript: 4
   - name: Yuan-Fang Li
-    link: https://liyuanfang.github.io/
+    link: "#"
     superscript: 3
   - name: Tao He
     link: "#"
