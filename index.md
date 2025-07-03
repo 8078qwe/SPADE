@@ -71,19 +71,19 @@ Follow this insight, we adapt diffusion models to PSG via:
 > *We hypothesize this synergy can overcome VLM limitations without sacrificing open-vocabulary generalization.*
 
 
-![motivation](/image/intro.png){: style="width: 500px; height: 300px; display: block; margin: 0 auto; margin-top: 50px; margin-bottom: 50px;"}
+![motivation](/image/intro.svg){: style="width: 500px; height: 300px; display: block; margin: 0 auto; margin-top: 50px; margin-bottom: 50px;"}
 
 
 # Methods
 We propose **SPADE** (**SPatial-Aware Denoising-nEtwork**), a novel two-stage framework that explicitly enhances spatial reasoning while retaining open-vocabulary recognition capabilities.
 
-![framework](/image/model.png){: style="width: 1000px; height: auto; display: block; margin: 0 auto; margin-top: 100px; margin-bottom: 100px;"}
+![framework](/image/model.svg){: style="width: 1000px; height: auto; display: block; margin: 0 auto; margin-top: 100px; margin-bottom: 100px;"}
 
 
 **Inversion-Guided UNet Calibration**
 In the first stage, we leverage a pre-trained diffusion model as a spatially-aware teacher.  Using the inversion process, we extract cross-attention maps that serve as explicit spatial priors, guiding the adaptation of the UNet denoising backbone.  To maintain the open-vocabulary recognition power, we adopt a lightweight fine-tuning strategy called LoRA (Low-Rank Adaptation), updating only a small set of parameters in cross-attention layers.  This ensures that the pre-trained knowledge is preserved while injecting strong spatial cues.
 
-![gte](/image/GTE.png){: style="width: 500px; height: 300px; display: block; margin: 0 auto; margin-top: 50px; margin-bottom: 50px;"}
+![gte](/image/GTE.svg){: style="width: 500px; height: 300px; display: block; margin: 0 auto; margin-top: 50px; margin-bottom: 50px;"}
 
 **Spatial-Aware Context Reasoning**
 In the second stage, we introduce a Spatial-Aware Relation Graph Transformer (RGT) to model both local and long-range context among segmented instances.  By constructing a spatial-semantic graph where nodes represent instance masks and edges encode spatial and semantic affinities, the RGT iteratively refines object features through a combination of graph convolutions and self-attention mechanisms.  This dual-context reasoning enables the model to capture subtle relationships that are crucial for accurate predicate prediction.
