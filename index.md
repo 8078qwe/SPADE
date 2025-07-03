@@ -30,7 +30,7 @@ affiliations: |
   <br><sup>*</sup> Corresponding author
 
 accepted:
-    The IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) 2025
+    The IEEE/CVF International Conference on Computer Vision (ICCV) 2025
 paper: https://openaccess.thecvf.com/content/CVPR2025/html/Yin_Knowledge-Aligned_Counterfactual-Enhancement_Diffusion_Perception_for_Unsupervised_Cross-Domain_Visual_Emotion_Recognition_CVPR_2025_paper.html
 # video: https://www.youtube.com/results?search_query=turing+machine
 code: https://github.com/yinwen2019/KCDP
