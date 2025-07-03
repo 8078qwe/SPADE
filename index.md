@@ -19,7 +19,6 @@ authors:
     link: https://liyuanfang.github.io/
     superscript: 3
   - name: Tao He
-    link: https://ht014.github.io/
     superscript: 1,2,*
 
 affiliations: |
@@ -71,7 +70,7 @@ Follow this insight, we adapt diffusion models to PSG via:
 > *We hypothesize this synergy can overcome VLM limitations without sacrificing open-vocabulary generalization.*
 
 
-![motivation](/image/intro.png){: style="width: 500px; height: 250px; display: block; margin: 0 auto; margin-top: 50px; margin-bottom: 50px;"}
+![motivation](/image/intro.png){: style="width: 500px; height: auto; display: block; margin: 0 auto; margin-top: 50px; margin-bottom: 50px;"}
 
 
 # Methods
@@ -83,7 +82,7 @@ We propose **SPADE** (**SPatial-Aware Denoising-nEtwork**), a novel two-stage fr
 **Inversion-Guided UNet Calibration**
 In the first stage, we leverage a pre-trained diffusion model as a spatially-aware teacher.  Using the inversion process, we extract cross-attention maps that serve as explicit spatial priors, guiding the adaptation of the UNet denoising backbone.  To maintain the open-vocabulary recognition power, we adopt a lightweight fine-tuning strategy called LoRA (Low-Rank Adaptation), updating only a small set of parameters in cross-attention layers.  This ensures that the pre-trained knowledge is preserved while injecting strong spatial cues.
 
-![gte](/image/GTE.png){: style="width: 400px; height: 300px; display: block; margin: 0 auto; margin-top: 50px; margin-bottom: 50px;"}
+![gte](/image/GTE.png){: style="width: 400px; height: auto; display: block; margin: 0 auto; margin-top: 50px; margin-bottom: 50px;"}
 
 **Spatial-Aware Context Reasoning**
 In the second stage, we introduce a Spatial-Aware Relation Graph Transformer (RGT) to model both local and long-range context among segmented instances.  By constructing a spatial-semantic graph where nodes represent instance masks and edges encode spatial and semantic affinities, the RGT iteratively refines object features through a combination of graph convolutions and self-attention mechanisms.  This dual-context reasoning enables the model to capture subtle relationships that are crucial for accurate predicate prediction.
