@@ -71,7 +71,7 @@ Follow this insight, we adapt diffusion models to PSG via:
 > *We hypothesize this synergy can overcome VLM limitations without sacrificing open-vocabulary generalization.*
 
 
-![motivation](/image/intro.png){: style="width: 500px; height: 200px; display: block; margin: 0 auto; margin-top: 50px; margin-bottom: 50px;"}
+![motivation](/image/intro.png){: style="width: 500px; height: 250px; display: block; margin: 0 auto; margin-top: 50px; margin-bottom: 50px;"}
 
 
 # Methods
