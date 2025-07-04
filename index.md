@@ -35,7 +35,7 @@ paper: https://openaccess.thecvf.com/content/CVPR2025/html/Yin_Knowledge-Aligned
 # video: https://www.youtube.com/results?search_query=turing+machine
 code: https://8078qwe.github.io/SPADE/
 # data: https://huggingface.co/docs/datasets
-slide: https://yinwen2019.github.io/ucdver/assets/slide.pptx
+# slide: https://yinwen2019.github.io/ucdver/assets/slide.pptx
 ---
 
 <!-- Using HTML to center the abstract -->
