@@ -31,7 +31,7 @@ affiliations: |
 
 accepted:
     The IEEE/CVF International Conference on Computer Vision (ICCV) 2025
-paper: #
+paper: https://www.arxiv.org/abs/2507.05798
 # video: https://www.youtube.com/results?search_query=turing+machine
 code: https://8078qwe.github.io/SPADE/
 # data: https://huggingface.co/docs/datasets
