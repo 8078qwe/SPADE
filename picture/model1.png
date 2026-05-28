@@ -1,0 +1,39 @@
+﻿                                                                                           Factual map    
+                        Factual                                                                                 Calibration Objective 
+                          “person is stand on  
+                              surfboard” 
+
+                                                                                           Counterfactual 
+                                                                Diffusion Model                                             Pull 
+                        Predicate replacement                                                 map                           close      
+
+                            “person is sit on  
+                              surfboard”                                                                        Factual alignment        
+
+                                                                                           Counterfactual 
+                        Role swap                                                             map      
+ n                                                               Text Encoder                           
+ o                        “surfboard is stand  
+i 
+ s 
+ r                            on person” 
+ e                                                                                                                                     
+ v 
+ n 
+I                                                                                                                     
+
+                                                                                           Factual map                             
+                                                                                                                                      
+                                              A 
+                                              d 
+                                              a 
+                                                                                                                Counterfactual contrastive  
+                           Image              p 
+                                              t                  Denoising U-Net 
+                                              e 
+                                                                                                                     calibration    
+                                                                                                                                      
+                                              r 
+                         Encoder 
+                                                                      LoRALoRA                                                           
+                                                                                                                                            

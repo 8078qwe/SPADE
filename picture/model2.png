@@ -1,0 +1,52 @@
+﻿                                                                                                                                                               Chair 
+
+                              E                                                                                                                        Laptop 
+                              n                                                                                                                               Look at 
+                              c 
+                                                                                 
+                                                                                                    Mask                    
+                              o 
+                              d 
+                                                   Calibrated U-Net                                                                                                      Person 
+                              e                                                                  Generator                                              o 
+                              r                                                                                                                         n 
+
+                                                                                                                                                                In front of 
+
+                                                                                                    GCCR                                               Table           Window 
+
+           Image Encoder                                Adaptor                                                                       g 
+                                                                                                                                      n 
+                                                                                                                                     i 
+                                                                                                                                     l 
+                                                                                                                                      o 
+                                                                                                                                      o 
+          Geometry-Conditioned Context Reasoning                                         Geometry-conditioned                        P 
+                                                                                                 refinement                        
+                      Edge-Weighted Relation  
+                        Graph Transformer                                                                                                    Word Embedding 
+                                                                                        Union-region        Role-aware  
+                         Local Aggregation                  Node feature                 refinement       geometric gating                  ∆ Discrimination  Score 
+
+                                                      Visual  Semantic Geometry 
+                                                                             
+                                                                                                    R 
+                                                                             
+                                                                                                           Relative  disp.                       Compatibility 
+                                                                                                   O                  M 
+                                                                                                    I 
+                                                                                                                      L 
+                                                                                                                                                   Function 
+                                                                                                    P 
+                                                                                                   o         IoU      P 
+                                                                                                   o 
+                       Long-range Aggregation                                                       l 
+
+                                                                                           … 
+                                                                                                            Area ratio 
+                                                                                                                                    Factual predicate      Hard-negative  
+Learnable Pair                                                                                                                         embedding        Predicate embedding 
+  Generation              Multi-head  attention 
+                                                                                                                                                    …                    … 
+                                                                                                 Interaction  
+                                                                                                 Generator                         Counterfactual Pair Learning 
