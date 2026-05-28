@@ -1,0 +1,40 @@
+# SPADE++ HICO-DET — open-vocabulary HOI detection (zero-shot UC, NF, RF, UV, UO)
+stage: 2
+dataset:
+  name: hico
+  ann_file: data/hico_20160224_det/annotations/trainval_hico.json
+  image_root: data/hico_20160224_det/images/train2015
+  image_size: 512
+
+model:
+  feat_dim: 320
+  hidden_dim: 256
+  num_queries: 64
+  rgt_layers: 8
+  geometric_dim: 128
+  semantic_dim: 768
+  alpha: 0.34
+  gamma: 0.2
+  top_k_inf: 3
+
+stage1_ckpt: outputs/hico_stage1/last.pt
+
+zero_shot:
+  scheme: nf_uc       # one of {nf_uc, rf_uc, uo, uv}
+
+optim:
+  lr: 2.0e-4
+  weight_decay: 1.0e-4
+  epochs: 90
+  batch_size: 1
+  grad_accum: 4
+
+losses:
+  lambda_rqc:  1.0
+  lambda_mask: 0.0    # HICO-DET has no masks
+  lambda_cfg:  1.0
+
+logging:
+  out_dir: outputs/hico_zs
+  log_interval: 50
+  ckpt_interval: 5

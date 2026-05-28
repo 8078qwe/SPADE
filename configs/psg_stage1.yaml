@@ -1,0 +1,34 @@
+# SPADE++ Stage 1 — PSG calibration
+stage: 1
+dataset:
+  name: psg
+  ann_file: data/psg/train.jsonl
+  image_root: data/psg/images
+  image_size: 512
+
+model:
+  sd_config: StableDiffusion/configs/stable-diffusion/v1-inference.yaml
+  sd_checkpoint: params/sd-v1-4.ckpt
+  clip_model: ViT-L/14
+  lora_rank: 16
+  num_inv_steps: 50
+
+calibration:
+  margin: 0.15
+  lambda_align: 1.0
+  lambda_cf: 0.5
+  n_cf: 3
+  hard_negative_top_k: 5
+
+optim:
+  lr: 1.0e-4
+  weight_decay: 1.0e-4
+  epochs: 30
+  batch_size: 1
+  grad_accum: 8
+  warmup_steps: 500
+
+logging:
+  out_dir: outputs/psg_stage1
+  log_interval: 50
+  ckpt_interval: 1

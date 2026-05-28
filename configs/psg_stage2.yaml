@@ -1,0 +1,37 @@
+# SPADE++ Stage 2 — PSG relation reasoning
+stage: 2
+dataset:
+  name: psg
+  ann_file: data/psg/train.jsonl
+  image_root: data/psg/images
+  image_size: 512
+
+model:
+  feat_dim: 320
+  hidden_dim: 256
+  num_queries: 100
+  rgt_layers: 8
+  geometric_dim: 128
+  semantic_dim: 768
+  alpha: 0.34
+  gamma: 0.2
+  top_k_inf: 3
+
+stage1_ckpt: outputs/psg_stage1/last.pt
+
+optim:
+  lr: 2.0e-4
+  weight_decay: 1.0e-4
+  epochs: 24
+  batch_size: 1
+  grad_accum: 4
+
+losses:
+  lambda_rqc:  1.0
+  lambda_mask: 5.0
+  lambda_cfg:  1.0
+
+logging:
+  out_dir: outputs/psg_stage2
+  log_interval: 50
+  ckpt_interval: 1
