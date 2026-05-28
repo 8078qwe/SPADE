@@ -1,8 +1,12 @@
 # SPADE++: Geometry-Conditioned Contrastive Reasoning for Open-Vocabulary Scene Graph Generation
 
-This repository is a reference PyTorch implementation of **SPADE++** (IJCV 2026 submission),
+This repository is a reference PyTorch implementation of **SPADE++**,
 the extension of our ICCV 2025 paper *SPADE*. SPADE++ inherits SPADE's two-stage diffusion-grounded
 pipeline and adds a single **counterfactual contrast principle** at two complementary points:
+
+<p align="center">
+  <img src="picture/model1.jpg" width="600" >
+</p>
 
 * **Stage 1 (feature level)** — calibrate a diffusion UNet with both *factual* and
   *counterfactual* cross-attention maps so that the calibrated student becomes a
