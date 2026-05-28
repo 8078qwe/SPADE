@@ -1,0 +1,16 @@
+torch>=1.13
+torchvision
+einops
+omegaconf
+timm
+transformers
+ftfy
+regex
+tqdm
+numpy
+pyyaml
+scipy
+opencv-python
+pycocotools
+Pillow
+peft
