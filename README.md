@@ -11,6 +11,11 @@ pipeline and adds a single **counterfactual contrast principle** at two compleme
 * **Stage 1 (feature level)** — calibrate a diffusion UNet with both *factual* and
   *counterfactual* cross-attention maps so that the calibrated student becomes a
   *discriminator* among similar attentions, not just a *reproducer* of the correct one.
+
+<p align="center">
+  <img src="picture/model2.jpg" width="600" >
+</p>
+  
 * **Stage 2 (decision level)** — replace SPADE's hard-thresholded graph and pair selector
   with a soft spatial-semantic graph, an edge-weighted Relation Graph Transformer (RGT),
   union-region RoI-Align refinement and role-aware geometric gating; on top of the relation
@@ -115,7 +120,71 @@ Supported datasets (see `datasets/`):
 | HICO-DET  | OV HOI det.     | `datasets/hico.py`    |
 | V-COCO    | OV HOI det.     | `datasets/vcoco.py`   |
 
-The annotation layouts follow the same conventions as our CaDM-LQ release.
+### PSG & VG
+[Datasets](https://entuedu-my.sharepoint.com/:f:/g/personal/jingkang001_e_ntu_edu_sg/EgQzvsYo3t9BpxgMZ6VHaEMBDAb7v0UgI8iIAExQUJq62Q?e=fIY3zh) are provided. Please unzip the files if necessary.
+```
+─ data
+   └─ psg_dataset
+       ├── coco
+       │   ├── panoptic_train2017
+       │   ├── panoptic_val2017
+       │   ├── train2017
+       │   └── val2017
+       └── psg
+           ├── psg_train_val.json
+           ├── psg_val_test.json
+           └── ...
+```
+If you want to play with VG, please download the VG dataset [here](https://entuedu-my.sharepoint.com/:f:/g/personal/jingkang001_e_ntu_edu_sg/EiBEV1Z3ueBJqJVO4j7z0YwBt_Jvj2AqYTRsiIs-8pZowg?e=C2O5yg), and put it into `./data` dir and use pipeline [here](https://github.com/Jingkang50/OpenPSG/blob/main/openpsg/datasets/sg.py) to process the dataset.
+
+
+### HICO-DET
+HICO-DET dataset can be downloaded [here](https://drive.google.com/open?id=1QZcJmGVlF9f4h-XLWe9Gkmnmj2z1gSnk). After finishing downloading, unpack the tarball (`hico_20160224_det.tar.gz`) to the `data` directory.
+
+Instead of using the original annotations files, we use the annotation files provided by the PPDM authors. The annotation files can be downloaded from [here](https://drive.google.com/open?id=1WI-gsNLS-t0Kh8TVki1wXqc3y2Ow1f2R). The downloaded annotation files have to be placed as follows.
+```
+─ data
+   └─ hico_20160224_det
+       |─ annotations
+       |   |─ trainval_hico.json
+       |   |─ test_hico.json
+       |   └─ corre_hico.npy
+       : 
+```
+
+### V-COCO
+First clone the repository of V-COCO from [here](https://github.com/s-gupta/v-coco), and then follow the instruction to generate the file `instances_vcoco_all_2014.json`. Next, download the prior file `prior.pickle` from [here](https://drive.google.com/drive/folders/10uuzvMUCVVv95-xAZg5KS94QXm7QXZW4). Place the files and make directories as follows.
+```
+
+ ─ data
+    └─ v-coco
+        |─ data
+        |   |─ instances_vcoco_all_2014.json
+        |   :
+        |─ prior.pickle
+        |─ images
+        |   |─ train2014
+        |   |   |─ COCO_train2014_000000000009.jpg
+        |   |   :
+        |   └─ val2014
+        |       |─ COCO_val2014_000000000042.jpg
+        |       :
+        |─ annotations
+        :
+```
+The annotation file have to be converted to the HOIA format. The conversion can be conducted as follows.
+```
+PYTHONPATH=data/v-coco \
+        python convert_vcoco_annotations.py \
+        --load_path data/v-coco/data \
+        --prior_path data/v-coco/prior.pickle \
+        --save_path data/v-coco/annotations
+```
+Note that only Python2 can be used for this conversion because `vsrl_utils.py` in the v-coco repository shows a error with Python3.
+
+V-COCO annotations with the HOIA format, `corre_vcoco.npy`, `test_vcoco.json`, and `trainval_vcoco.json` will be generated to `annotations` directory.
+
+
 
 ## 5. Usage
 
@@ -135,12 +204,5 @@ sh ./run/psg_eval.sh
 
 ## 6. Acknowledgments
 
-This codebase is built on top of:
+This repo is mainly based on [PSG](https://github.com/Jingkang50/OpenPSG), [GEN-VLKT](https://github.com/YueLiao/gen-vlkt), [Mask2Former](https://github.com/facebookresearch/Mask2Former) and [Stable Diffusion](https://github.com/CompVis/stable-diffusion) . We thank their well-organized code!
 
-* **SPADE** (Hu *et al.*, ICCV 2025)
-* **CaDM-LQ** (https://github.com/.../CaDM-LQ)
-* **Stable Diffusion** (Rombach *et al.*, CVPR 2022)
-* **Mask2Former** (Cheng *et al.*, CVPR 2022)
-* **GEN-VLKT**, **DINO**, **CLIP4HOI**, **HOICLIP**
-
-We thank the authors for releasing well-organized code.
