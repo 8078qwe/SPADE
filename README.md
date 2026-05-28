@@ -206,3 +206,14 @@ sh ./run/psg_eval.sh
 
 This repo is mainly based on [PSG](https://github.com/Jingkang50/OpenPSG), [GEN-VLKT](https://github.com/YueLiao/gen-vlkt), [Mask2Former](https://github.com/facebookresearch/Mask2Former) and [Stable Diffusion](https://github.com/CompVis/stable-diffusion) . We thank their well-organized code!
 
+## 7. Citation
+If you find our repository useful for your research, please consider citing our paper:
+```bibtex
+@inproceedings{hu2025spade,
+  title={SPADE: spatial-aware denoising network for open-vocabulary panoptic scene graph generation with long-and local-range context reasoning},
+  author={Hu, Xin and Qin, Ke and Duan, Guiduo and Li, Ming and Li, Yuan-Fang and He, Tao},
+  booktitle={Proceedings of the IEEE/CVF International Conference on Computer Vision},
+  pages={15562--15572},
+  year={2025}
+}
+
